@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroTech | Premium Electronics</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Electro<span>Tech</span>.</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#deals">Deals</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="app">
+        <!-- Content will be injected here or sections will be here -->
+
+        <!-- Hero Section -->
+        <header class="hero" id="home">
+            <div class="hero-content">
+                <span class="badge">New Arrival</span>
+                <h2>The Future is <br> <span class="text-gradient">Here & Now</span></h2>
+                <p>Discover the latest in premium electronics with immersive displays and next-gen performance.</p>
+                <div class="cta-group">
+                    <a href="#products" class="btn btn-primary">Shop Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="#demo" class="btn btn-secondary"><i class="fas fa-play"></i> Watch Demo</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="circle-bg"></div>
+                <!-- Placeholder for Hero Image, will use a generated one or abstract shape -->
+                <img src="https://image.pollinations.ai/prompt/luxury%20gold%20wireless%20headphones%20premium%20product%20photography%20floating%20white%20background?nologo=true"
+                    alt="Luxury Gold Headphones" class="floating-img">
+            </div>
+        </header>
+
+        <!-- Categories Section -->
+        <section class="categories" id="categories">
+            <div class="section-header">
+                <h3>Browse by Category</h3>
+            </div>
+            <div class="category-grid">
+                <!-- Categories will be dynamic or hardcoded -->
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="products" id="products">
+            <div class="section-header">
+                <h3>Trending Products</h3>
+                <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="product-grid" id="product-grid">
+                <!-- Products injected via JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart <span id="cart-count">(0)</span></h3>
+            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Items injected here -->
+            <div class="empty-cart-msg">Your cart is empty</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0</span>
+            </div>
+            <button class="btn btn-primary checkout-btn">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ElectroTech. Premium Electronics Store.</p>
+    </footer>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <button class="close-search" id="close-search"><i class="fas fa-times"></i></button>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search products...">
+            <div class="search-results" id="search-results"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

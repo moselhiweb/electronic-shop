@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | ElectroTech</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" style="position: sticky; top: 0;">
+        <div class="logo">
+            <a href="index.html">
+                <h1>Electro<span>Tech</span>.</h1>
+            </a>
+        </div>
+        <div class="nav-icons">
+            <a href="index.html"><i class="fas fa-home"></i></a>
+        </div>
+    </nav>
+
+    <main id="app">
+        <section class="cart-page-section">
+            <div class="cart-container">
+                <div class="cart-list-panel">
+                    <div class="section-header">
+                        <h3>Your Shopping Cart</h3>
+                        <span id="cart-page-count" class="item-count">0 Items</span>
+                    </div>
+
+                    <div class="cart-table-header">
+                        <span>Product</span>
+                        <span>Quantity</span>
+                        <span>Price</span>
+                        <span>Total</span>
+                        <span></span>
+                    </div>
+
+                    <div id="cart-page-items" class="cart-page-items">
+                        <!-- Items injected via JS -->
+                    </div>
+
+                    <a href="index.html" class="continue-shopping"><i class="fas fa-arrow-left"></i> Continue
+                        Shopping</a>
+                </div>
+
+                <div class="cart-summary-panel">
+                    <h3>Order Summary</h3>
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal-price">$0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="shipping-price">$0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax (5%)</span>
+                        <span id="tax-price">$0</span>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="total-final-price">$0</span>
+                    </div>
+
+                    <button class="btn btn-primary checkout-full-btn">Proceed to Checkout</button>
+
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ElectroTech. Premium Electronics Store.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        // Render Cart Page specific logic
+        window.renderCartPage = function () {
+            const container = document.getElementById('cart-page-items');
+            const cartCount = document.getElementById('cart-page-count');
+
+            // Summary Elements
+            const elSubtotal = document.getElementById('subtotal-price');
+            const elShipping = document.getElementById('shipping-price');
+            const elTax = document.getElementById('tax-price');
+            const elTotal = document.getElementById('total-final-price');
+
+            if (!container) return; // Not on cart page?
+
+            container.innerHTML = '';
+            let subtotal = 0;
+            let totalItems = 0;
+
+            if (cart.length === 0) {
+                container.innerHTML = `<div class="empty-state">
+                    <i class="fas fa-shopping-basket"></i>
+                    <p>Your cart is currently empty.</p>
+                    <a href="index.html" class="btn btn-secondary">Start Shopping</a>
+                </div>`;
+                elSubtotal.innerText = '$0';
+                elShipping.innerText = '$0';
+                elTax.innerText = '$0';
+                elTotal.innerText = '$0';
+                cartCount.innerText = '0 Items';
+                return;
+            }
+
+            cart.forEach(item => {
+                const q = item.quantity || 1;
+                const itemTotal = item.price * q;
+                subtotal += itemTotal;
+                totalItems += q;
+
+                const row = document.createElement('div');
+                row.className = 'cart-page-item';
+                row.innerHTML = `
+                    <div class="col-product">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div>
+                            <h5>${item.name}</h5>
+                            <span class="small-cat">${item.category}</span>
+                        </div>
+                    </div>
+                    <div class="col-qty">
+                        <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                        <span>${q}</span>
+                        <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                    </div>
+                    <div class="col-price">$${item.price}</div>
+                    <div class="col-total">$${itemTotal}</div>
+                    <div class="col-remove">
+                        <button class="remove-btn" onclick="removeFromCart(${item.id})"><i class="fas fa-times"></i></button>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+
+            // Calculations
+            const shipping = subtotal > 1000 ? 0 : 50; // Free shipping over $1000
+            const tax = Math.round(subtotal * 0.05);
+            const finalTotal = subtotal + shipping + tax;
+
+            // DOM Updates
+            cartCount.innerText = `${totalItems} Items`;
+            elSubtotal.innerText = `$${subtotal.toLocaleString()}`;
+            elShipping.innerText = shipping === 0 ? 'Free' : `$${shipping}`;
+            elTax.innerText = `$${tax.toLocaleString()}`;
+            elTotal.innerText = `$${finalTotal.toLocaleString()}`;
+        };
+
+        // Initial Render
+        document.addEventListener('DOMContentLoaded', renderCartPage);
+    </script>
+</body>
+
+</html>
