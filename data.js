@@ -1,18 +1,18 @@
 const products = [
     {
         id: 1,
-        name: "Pro Gaming Laptop X1",
-        category: "Laptops",
-        price: 2499,
-        image: "https://image.pollinations.ai/prompt/futuristic%20gaming%20laptop%20rgb%20lights%20dark%20background?nologo=true",
-        description: "Experience ultimate performance with the X1. Featuring the latest RTX graphics and Ryzen 9 processor."
+        name: "Samsung S25 Ultra",
+        category: "Phones",
+        price: 1299,
+        image: "https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc4/Samsung-Galaxy-S25-released-header.jpg",
+        description: "Experience the next level of mobile technology with the Galaxy S25 Ultra. Features a stunning 200MP camera and the fastest chip ever."
     },
     {
         id: 2,
-        name: "Neon Phone 15 Pro",
+        name: "iPhone 15 pro max",
         category: "Phones",
         price: 1199,
-        image: "images/iphone15pro_v2.jpg",
+        image: "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/38/493784/1.jpg?2429",
         description: "Sleek design, powerful camera system, and all-day battery life."
     },
     {
@@ -20,7 +20,7 @@ const products = [
         name: "Wireless Headset Z",
         category: "Audio",
         price: 299,
-        image: "images/wireless_headset_z.jpg",
+        image: "https://rukminim2.flixcart.com/image/704/844/xif0q/headphone/f/d/g/bullets-wireless-z2-bluetooth-5-0-in-ear-earphones-bombastic-original-imah9fygzwtark2b.jpeg?q=90&crop=false",
         description: "Noise-cancelling over-ear headphones with premium sound quality."
     },
     {
@@ -156,7 +156,7 @@ const products = [
         name: "Foldable Phone Z",
         category: "Phones",
         price: 1799,
-        image: "https://image.pollinations.ai/prompt/foldable%20smartphone%20open%20screen%20technology?nologo=true",
+        image: "https://i.redd.it/huawei-mate-xt-is-a-10-2-inch-tablet-when-you-fully-unfold-v0-in3t6k6o0znd1.jpg?width=4096&format=pjpg&auto=webp&s=8575b05c47c8dec1a00459c5a7234dc8ce535cc0",
         description: "The future in your pocket. Unfold an immense screen for multitasking."
     },
     {
@@ -164,7 +164,7 @@ const products = [
         name: "HP Omen 16",
         category: "Laptops",
         price: 1699,
-        image: "https://image.pollinations.ai/prompt/hp%20omen%20gaming%20laptop%20rgb%20keyboard%20black?nologo=true",
+        image: "https://laptopsking.com/cdn/shop/files/HP_Omen_16_K0033DX_Core_i9-12900h_RTX_3060_165_HZ_QHD_Gaming_Laptops.jpg?v=1722430101",
         description: "Powered by OMEN Tempest Cooling technology, preventing overheating even when your game heats up."
     },
     {
@@ -172,7 +172,7 @@ const products = [
         name: "Asus TUF Gaming F15",
         category: "Laptops",
         price: 1199,
-        image: "images/asus_tuf_f15.jpg",
+        image: "https://action-jo-v2.action.jo/cdn-cgi/image/w=2000,h=2000,f=webp,q=100,fit=contain/https://action-v2-backend.b-cdn.net/45984/PnmJze5XmNdAAxWaqs4Nsj1qYIkOtBsTSjPRwezO.jpg",
         description: "Geared for serious gaming and real-world durability, fully loaded for victory."
     },
     {
@@ -180,7 +180,7 @@ const products = [
         name: "iPhone 17 Pro Max",
         category: "Phones",
         price: 1599,
-        image: "images/iphone17_pro_max.jpg",
+        image: "https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/iphone-17-pro-17-pro-max-hero.png",
         description: "Example of future technology. The most advanced iPhone ever created (Concept)."
     },
     {
